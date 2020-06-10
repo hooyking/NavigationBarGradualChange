@@ -12,6 +12,8 @@ self.imageView = self.navigationController.navigationBar.subviews.firstObject;
 
 如我这儿滚动视图用的是UIScrollView（其他所有的滚动视图都适用），在scrollViewDelegate中如下写，就可使导航栏渐变
 
+```
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat minAlphaOffset = - kNavConH;
     CGFloat maxAlphaOffset = 150;
@@ -19,3 +21,5 @@ self.imageView = self.navigationController.navigationBar.subviews.firstObject;
     CGFloat alpha = (offset - minAlphaOffset) / (maxAlphaOffset - minAlphaOffset);
     self.imageView.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:alpha];
 }
+
+```
