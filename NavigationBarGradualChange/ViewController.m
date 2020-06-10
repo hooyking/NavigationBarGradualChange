@@ -15,7 +15,7 @@
 @interface ViewController ()<UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UIView *navTopView;
 
 @end
 
@@ -33,14 +33,14 @@
     self.scrollView.backgroundColor = [UIColor colorWithWhite:0.5 alpha:1];
     self.scrollView.delegate = self;
     [self.view addSubview:self.scrollView];
-    
+
     UILabel *la = [[UILabel alloc] initWithFrame:CGRectMake(0, 100, kScreenW, 20)];
     la.text = @"上下滚动可看到导航栏动态变化颜色";
     la.textColor = [UIColor whiteColor];
     la.textAlignment = NSTextAlignmentCenter;
     [self.scrollView addSubview:la];
-    
-    self.imageView = self.navigationController.navigationBar.subviews.firstObject;
+
+    self.navTopView = self.navigationController.navigationBar.subviews.firstObject;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -60,7 +60,7 @@
     CGFloat maxAlphaOffset = 150;
     CGFloat offset = scrollView.contentOffset.y;
     CGFloat alpha = (offset - minAlphaOffset) / (maxAlphaOffset - minAlphaOffset);
-    self.imageView.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:alpha];
+    self.navTopView.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:alpha];
 }
 
 @end
