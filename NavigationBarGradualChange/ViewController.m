@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "OtherViewController.h"
 
 #define kScreenW                        [[UIScreen mainScreen] bounds].size.width
 #define kScreenH                        [[UIScreen mainScreen] bounds].size.height
@@ -37,10 +38,8 @@
     [super viewDidLoad];
     
     self.title = @"导航栏动态渐变";
-    self.navigationController.navigationBar.barTintColor = [UIColor redColor];
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:17]};
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"添加" style:UIBarButtonItemStylePlain target:self action:nil];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"跳转" style:UIBarButtonItemStylePlain target:self action:@selector(pushToOtherVC)];
     
     self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     self.scrollView.contentSize = CGSizeMake(kScreenW, 3*kScreenH);
@@ -63,6 +62,7 @@
     self.navigationController.navigationBar.shadowImage = [UIImage new];
 }
 
+//恢复导航栏
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
@@ -74,8 +74,14 @@
     CGFloat maxAlphaOffset = 150;
     CGFloat offset = scrollView.contentOffset.y;
     CGFloat alpha = (offset - minAlphaOffset) / (maxAlphaOffset - minAlphaOffset);
-
+    //这儿使用colorWithAlphaComponent也可以调节本视图的透明度，且子视图的透明度不受影响，用view.alpha不只本视图透明度改变了，他的所有的子视图的透明度也受影响
     self.navTopView.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:alpha];
+}
+
+- (void)pushToOtherVC {
+    OtherViewController *vc = [OtherViewController new];
+    vc.title = @"另一个VC";
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

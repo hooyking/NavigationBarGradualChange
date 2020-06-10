@@ -25,6 +25,8 @@
         window.backgroundColor = [UIColor whiteColor];
         self.window = window;
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[ViewController new]];
+        navigationController.navigationBar.barTintColor = [UIColor redColor];
+        navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:17]};
         self.window.rootViewController = navigationController;
         [self.window makeKeyAndVisible];
     }

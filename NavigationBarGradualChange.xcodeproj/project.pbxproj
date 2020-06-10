@@ -16,6 +16,7 @@
 		318A6ACB248F2DAD00E8CF96 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 318A6ACA248F2DAD00E8CF96 /* main.m */; };
 		318A6AD5248F2DAE00E8CF96 /* NavigationBarGradualChangeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 318A6AD4248F2DAE00E8CF96 /* NavigationBarGradualChangeTests.m */; };
 		318A6AE0248F2DAE00E8CF96 /* NavigationBarGradualChangeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 318A6ADF248F2DAE00E8CF96 /* NavigationBarGradualChangeUITests.m */; };
+		319C76B82490AFF50078935E /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 319C76B72490AFF50078935E /* OtherViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		318A6ADB248F2DAE00E8CF96 /* NavigationBarGradualChangeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NavigationBarGradualChangeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		318A6ADF248F2DAE00E8CF96 /* NavigationBarGradualChangeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationBarGradualChangeUITests.m; sourceTree = "<group>"; };
 		318A6AE1248F2DAE00E8CF96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		319C76B62490AFF50078935E /* OtherViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtherViewController.h; sourceTree = "<group>"; };
+		319C76B72490AFF50078935E /* OtherViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OtherViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				318A6ABC248F2DAC00E8CF96 /* SceneDelegate.m */,
 				318A6ABE248F2DAC00E8CF96 /* ViewController.h */,
 				318A6ABF248F2DAC00E8CF96 /* ViewController.m */,
+				319C76B62490AFF50078935E /* OtherViewController.h */,
+				319C76B72490AFF50078935E /* OtherViewController.m */,
 				318A6AC1248F2DAC00E8CF96 /* Main.storyboard */,
 				318A6AC4248F2DAD00E8CF96 /* Assets.xcassets */,
 				318A6AC6248F2DAD00E8CF96 /* LaunchScreen.storyboard */,
@@ -268,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				318A6AC0248F2DAC00E8CF96 /* ViewController.m in Sources */,
+				319C76B82490AFF50078935E /* OtherViewController.m in Sources */,
 				318A6ABA248F2DAC00E8CF96 /* AppDelegate.m in Sources */,
 				318A6ACB248F2DAD00E8CF96 /* main.m in Sources */,
 				318A6ABD248F2DAC00E8CF96 /* SceneDelegate.m in Sources */,
