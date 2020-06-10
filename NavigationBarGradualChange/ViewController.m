@@ -11,6 +11,18 @@
 #define kScreenW                        [[UIScreen mainScreen] bounds].size.width
 #define kScreenH                        [[UIScreen mainScreen] bounds].size.height
 #define kNavConH                        self.navigationController.navigationBar.frame.size.height
+#define kStatusBarH \
+\
+^(){ \
+    CGFloat statusBarH = 0; \
+    if (@available(iOS 13.0, *)) { \
+        UIWindowScene *windowScene = (UIWindowScene *)[UIApplication sharedApplication].connectedScenes.allObjects.lastObject; \
+        statusBarH = windowScene.statusBarManager.statusBarFrame.size.height; \
+    } else { \
+       statusBarH = [[UIApplication sharedApplication] statusBarFrame].size.height; \
+    } \
+    return statusBarH; \
+}()
 
 @interface ViewController ()<UIScrollViewDelegate>
 
@@ -28,6 +40,8 @@
     self.navigationController.navigationBar.barTintColor = [UIColor redColor];
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:17]};
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"添加" style:UIBarButtonItemStylePlain target:self action:nil];
+    
     self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     self.scrollView.contentSize = CGSizeMake(kScreenW, 3*kScreenH);
     self.scrollView.backgroundColor = [UIColor colorWithWhite:0.5 alpha:1];
@@ -39,7 +53,7 @@
     la.textColor = [UIColor whiteColor];
     la.textAlignment = NSTextAlignmentCenter;
     [self.scrollView addSubview:la];
-
+    
     self.navTopView = self.navigationController.navigationBar.subviews.firstObject;
 }
 
@@ -56,10 +70,11 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    CGFloat minAlphaOffset = - kNavConH;
+    CGFloat minAlphaOffset = - kNavConH - kStatusBarH;
     CGFloat maxAlphaOffset = 150;
     CGFloat offset = scrollView.contentOffset.y;
     CGFloat alpha = (offset - minAlphaOffset) / (maxAlphaOffset - minAlphaOffset);
+
     self.navTopView.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:alpha];
 }
 
