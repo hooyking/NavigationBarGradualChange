@@ -2,7 +2,7 @@
 
 视图滚动时导航栏颜色渐变
 
-项目跑起来后点击下方 Debug View Hierarchy按钮可看到导航栏最上方是一个UIView，所以这儿关键是取到这个值
+项目跑起来后点击下方 Debug View Hierarchy按钮可看到导航栏最上方是一个UIView（层级上的UIBarBackground），所以这儿关键是取到这个值
 
 self.navTopView = self.navigationController.navigationBar.subviews.firstObject;
 
